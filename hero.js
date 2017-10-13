@@ -18,4 +18,8 @@ Hero.prototype.eat = function(food) {
   };
 };
 
+Hero.prototype.acceptQuest = function(quest) {
+  this.quests.push(quest);
+};
+
 module.exports = Hero;

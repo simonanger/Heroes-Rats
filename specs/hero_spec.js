@@ -1,16 +1,21 @@
 var assert = require("assert");
 var Hero = require("../hero");
 var Food = require("../food");
+var Quest = require("../quest");
 
 describe("Customer", function() {
   var hero;
   var food1;
   var food2;
+  var quest1;
+  var quest2;
 
   beforeEach(function() {
     hero = new Hero("Cloud Strife", 100, "Cup Noodle");
     food1 = new Food("Ramen", 20);
     food2 = new Food("Cup Noodle", 50);
+    quest1 = new Quest("Destroy the Mako Reactor", 3, 1, 100, false);
+    quest2 = new Quest("Disable the Security Robot", 4, 2, 100, false);
   });
 
   it("has a name", function() {
@@ -44,5 +49,11 @@ describe("Customer", function() {
     hero.eat(food2);
     assert.strictEqual(hero.health, 175);
   });
+
+  it("can accept quests", function() {
+    hero.acceptQuest(quest1);
+    assert.strictEqual(hero.quests.length, 1);
+    assert.strictEqual(hero.quests[0].name, "Destroy the Mako Reactor");
+  })
 
 })
