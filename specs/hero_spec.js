@@ -39,13 +39,11 @@ describe("Customer", function() {
   });
 
   it("can eat food and health increases", function() {
-    assert.strictEqual(hero.health, 100);
     hero.eat(food1);
     assert.strictEqual(hero.health, 120);
   });
 
   it("can eat favourite food & replenishmentValue increases by 1.5", function(){
-    assert.strictEqual(hero.health, 100);
     hero.eat(food2);
     assert.strictEqual(hero.health, 175);
   });
@@ -54,6 +52,13 @@ describe("Customer", function() {
     hero.acceptQuest(quest1);
     assert.strictEqual(hero.quests.length, 1);
     assert.strictEqual(hero.quests[0].name, "Destroy the Mako Reactor");
+  });
+
+  it("can sort quests by urgency", function() {
+    hero.acceptQuest(quest2);
+    hero.acceptQuest(quest1);
+    hero.sortQuests("urgency");
+    assert.deepStrictEqual(hero.quests, [quest1, quest2] );
   })
 
 })
