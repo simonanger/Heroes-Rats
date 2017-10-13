@@ -2,7 +2,7 @@ var Hero = function(name, health, favFood) {
   this.name = name;
   this.health = health;
   this.favFood = favFood;
-  this.tasks = [];
+  this.quests = [];
 }
 
 Hero.prototype.talk = function() {

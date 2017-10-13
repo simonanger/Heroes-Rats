@@ -1,4 +1,4 @@
-var Task = function(name, difficulty, urgency, reward, completed ) {
+var Quest = function(name, difficulty, urgency, reward, completed ) {
   this.name = name;
   this.difficulty = difficulty,
   this.urgency = urgency,
@@ -7,4 +7,4 @@ var Task = function(name, difficulty, urgency, reward, completed ) {
 }
 
 
-module.exports = Task;
+module.exports = Quest;

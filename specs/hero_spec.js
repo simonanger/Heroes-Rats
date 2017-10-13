@@ -29,8 +29,8 @@ describe("Customer", function() {
     assert.strictEqual(hero.talk(), "My name is Cloud Strife!")
   });
 
-  it("has a task list that starts empty", function() {
-    assert.strictEqual(hero.tasks.length, 0);
+  it("has a quest list that starts empty", function() {
+    assert.strictEqual(hero.quests.length, 0);
   });
 
   it("can eat food and health increases", function() {
