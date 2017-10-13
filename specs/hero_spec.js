@@ -2,6 +2,7 @@ var assert = require("assert");
 var Hero = require("../hero");
 var Food = require("../food");
 var Quest = require("../quest");
+var Weapon = require("../weapon");
 
 describe("Customer", function() {
   var hero;
@@ -9,6 +10,7 @@ describe("Customer", function() {
   var food2;
   var quest1;
   var quest2;
+  var weapon1;
 
   beforeEach(function() {
     hero = new Hero("Cloud Strife", 100, "Cup Noodle");
@@ -16,6 +18,7 @@ describe("Customer", function() {
     food2 = new Food("Cup Noodle", 50);
     quest1 = new Quest("Destroy the Mako Reactor", 3, 1, 100, false);
     quest2 = new Quest("Disable the Security Robot", 4, 2, 100, false);
+    weapon1 = new Weapon("Buster Sword", 50);
   });
 
   it("has a name", function() {
@@ -40,6 +43,10 @@ describe("Customer", function() {
 
   it("has a completed quest list that starts empty", function() {
     assert.strictEqual(hero.completedQuests.length, 0);
+  });
+
+  it("has a weapons list that starts empty", function() {
+    assert.strictEqual(hero.weapons.length, 0);
   });
 
   it("can eat food and health increases", function() {
@@ -72,6 +79,12 @@ describe("Customer", function() {
     assert.strictEqual(hero.completedQuests.length, 1);
     assert.strictEqual(hero.completedQuests[0].name, "Destroy the Mako Reactor");
     assert.strictEqual(hero.quests.length, 1);
+  });
+
+  it("can get a weapon", function() {
+    hero.getWeapon(weapon1);
+    assert.strictEqual(hero.weapons.length, 1);
+    assert.strictEqual(hero.weapons[0].name, "Buster Sword");
   });
 
 })

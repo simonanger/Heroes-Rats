@@ -4,6 +4,7 @@ var Hero = function(name, health, favFood) {
   this.favFood = favFood;
   this.quests = [];
   this.completedQuests = [];
+  this.weapons = [];
 }
 
 Hero.prototype.talk = function() {
@@ -45,6 +46,10 @@ Hero.prototype.completeQuest = function(quest) {
       this.quests.splice(index, 1);
     }
   };
+};
+
+Hero.prototype.getWeapon = function(weapon) {
+  this.weapons.push(weapon);
 };
 
 
