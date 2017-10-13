@@ -3,6 +3,7 @@ var Hero = require("../hero");
 var Food = require("../food");
 var Quest = require("../quest");
 var Weapon = require("../weapon");
+var Enemy = require("../enemy");
 
 describe("Customer", function() {
   var hero;
@@ -11,6 +12,8 @@ describe("Customer", function() {
   var quest1;
   var quest2;
   var weapon1;
+  var weapon2;
+  var enemy;
 
   beforeEach(function() {
     hero = new Hero("Cloud Strife", 100, "Cup Noodle");
@@ -19,6 +22,7 @@ describe("Customer", function() {
     quest1 = new Quest("Destroy the Mako Reactor", 3, 1, 100, false);
     quest2 = new Quest("Disable the Security Robot", 4, 2, 100, false);
     weapon1 = new Weapon("Buster Sword", 50);
+    enemy = new Enemy("Sephiroth", 200, 75);
   });
 
   it("has a name", function() {
@@ -85,6 +89,17 @@ describe("Customer", function() {
     hero.getWeapon(weapon1);
     assert.strictEqual(hero.weapons.length, 1);
     assert.strictEqual(hero.weapons[0].name, "Buster Sword");
+  });
+
+  it("can attack an enemy", function() {
+    hero.getWeapon(weapon1);
+    hero.attack(weapon1, enemy);
+    assert.strictEqual(enemy.health, 150);
+  });
+
+  it("can be hurt if the hero doesnt have the right weapon", function() {
+    hero.attack(weapon1, enemy);
+    assert.strictEqual(hero.health, 25);
   });
 
 })
