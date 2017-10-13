@@ -1,0 +1,14 @@
+{
+  "name": "heroesandrats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hero.js",
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
+}
