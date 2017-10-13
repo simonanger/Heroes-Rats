@@ -3,6 +3,7 @@ var Hero = function(name, health, favFood) {
   this.health = health;
   this.favFood = favFood;
   this.quests = [];
+  this.completedQuests = [];
 }
 
 Hero.prototype.talk = function() {
@@ -33,6 +34,18 @@ Hero.prototype.sortQuests = function(parameter) {
       return b.difficulty - a.difficulty;
     })
   };
-}
+};
+
+Hero.prototype.completeQuest = function(quest) {
+  var index = this.quests.indexOf(quest);
+  for (incomplete of this.quests) {
+    if (incomplete.name === quest.name) {
+      incomplete.completed = true;
+      this.completedQuests.push(incomplete);
+      this.quests.splice(index, 1);
+    }
+  };
+};
+
 
 module.exports = Hero;

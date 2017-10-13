@@ -38,6 +38,10 @@ describe("Customer", function() {
     assert.strictEqual(hero.quests.length, 0);
   });
 
+  it("has a completed quest list that starts empty", function() {
+    assert.strictEqual(hero.completedQuests.length, 0);
+  });
+
   it("can eat food and health increases", function() {
     hero.eat(food1);
     assert.strictEqual(hero.health, 120);
@@ -59,6 +63,15 @@ describe("Customer", function() {
     hero.acceptQuest(quest1);
     hero.sortQuests("urgency");
     assert.deepStrictEqual(hero.quests, [quest1, quest2] );
-  })
+  });
+
+  it("can complete quests and they remove from quest list", function() {
+    hero.acceptQuest(quest1);
+    hero.acceptQuest(quest2);
+    hero.completeQuest(quest1);
+    assert.strictEqual(hero.completedQuests.length, 1);
+    assert.strictEqual(hero.completedQuests[0].name, "Destroy the Mako Reactor");
+    assert.strictEqual(hero.quests.length, 1);
+  });
 
 })

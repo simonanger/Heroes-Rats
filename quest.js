@@ -7,4 +7,5 @@ var Quest = function(name, difficulty, urgency, reward, completed ) {
 }
 
 
+
 module.exports = Quest;
