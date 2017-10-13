@@ -52,16 +52,26 @@ Hero.prototype.getWeapon = function(weapon) {
   this.weapons.push(weapon);
 };
 
+// Hero.prototype.attack = function(weapon, enemy) {
+//   for (attackWeapon of this.weapons) {
+//     if (attackWeapon.name === weapon.name) {
+//       enemy.health -= weapon.attackValue;
+//     };
+//   };
+//   if (this.weapons.length === 0) {
+//     this.health -= enemy.attackValue;
+//   }
+// }
+
 Hero.prototype.attack = function(weapon, enemy) {
-  for (attackWeapon of this.weapons) {
+  this.weapons.forEach(function(attackWeapon) {
     if (attackWeapon.name === weapon.name) {
       enemy.health -= weapon.attackValue;
     };
-  };
-  if (this.weapons.length === 0) {
-    this.health -= enemy.attackValue;
-  }
-}
-
+  });
+    if (this.weapons.length === 0) {
+      this.health -= enemy.attackValue;
+    }
+};
 
 module.exports = Hero;
