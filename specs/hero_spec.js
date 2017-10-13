@@ -1,5 +1,6 @@
 var assert = require("assert");
 var Hero = require("../hero");
+var Food = require("../food");
 
 describe("Customer", function() {
   var hero;
@@ -27,5 +28,9 @@ describe("Customer", function() {
   it("has a task list that starts empty", function() {
     assert.strictEqual(hero.tasks.length, 0);
   });
+
+  it("can eat food and health increases", function() {
+    hero.eat(food)
+  }
 
 })
