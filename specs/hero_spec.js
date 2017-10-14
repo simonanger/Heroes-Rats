@@ -37,6 +37,10 @@ describe("Customer", function() {
     assert.strictEqual(hero.favFood, "Cup Noodle");
   });
 
+  it("starts with an empty wallet", function() {
+    assert.strictEqual(hero.wallet, 0);
+  })
+
   it("can talk", function() {
     assert.strictEqual(hero.talk(), "My name is Cloud Strife!")
   });
@@ -84,6 +88,18 @@ describe("Customer", function() {
     assert.strictEqual(hero.completedQuests[0].name, "Destroy the Mako Reactor");
     assert.strictEqual(hero.quests.length, 1);
   });
+
+  it("cannot complete quests that have not been previously accepted", function() {
+    hero.acceptQuest(quest1);
+    hero.completeQuest(quest2);
+    assert.strictEqual(hero.completedQuests.length, 0);
+  });
+
+  it("automatically updates wallet upon quest completion", function() {
+    hero.acceptQuest(quest1);
+    hero.completeQuest(quest1);
+    assert.strictEqual(hero.wallet, 100);
+  })
 
   it("can get a weapon", function() {
     hero.getWeapon(weapon1);

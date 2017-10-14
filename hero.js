@@ -2,6 +2,7 @@ var Hero = function(name, health, favFood) {
   this.name = name;
   this.health = health;
   this.favFood = favFood;
+  this.wallet = 0;
   this.quests = [];
   this.completedQuests = [];
   this.weapons = [];
@@ -43,6 +44,7 @@ Hero.prototype.completeQuest = function(quest) {
     if (incomplete.name === quest.name) {
       incomplete.completed = true;
       this.completedQuests.push(incomplete);
+      this.wallet += quest.reward;
       this.quests.splice(index, 1);
     }
   };
