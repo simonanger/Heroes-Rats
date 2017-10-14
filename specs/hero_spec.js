@@ -102,4 +102,8 @@ describe("Customer", function() {
     assert.strictEqual(hero.health, 25);
   });
 
+  it("can do a random attack", function() {
+    hero.randomAttack(weapon1, enemy);
+  })
+
 })

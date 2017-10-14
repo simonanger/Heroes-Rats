@@ -74,4 +74,19 @@ Hero.prototype.attack = function(weapon, enemy) {
     }
 };
 
+Hero.prototype.randomAttack =  function(weapon, enemy) {
+  var randomNo = Math.floor(Math.random() * 100);
+  if (randomNo % 2 === 0 ) {
+    enemy.health -= weapon.attackValue;
+    console.log( this.name + " attacked", enemy.name, "with the", weapon.name,
+   "and did", weapon.attackValue, "damage!");
+   console.log(enemy.name + "'s health is now", enemy.health );
+  } else {
+    this.health -= enemy.attackValue;
+    console.log(this.name, "attacked and missed!", enemy.name, "retaliated by dealing",
+    enemy.attackValue, "damage!" );
+    console.log(this.name +"'s health is now", this.health);
+  }
+};
+
 module.exports = Hero;
