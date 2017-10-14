@@ -79,12 +79,13 @@ Hero.prototype.randomAttack =  function(weapon, enemy) {
   if (randomNo % 2 === 0 ) {
     enemy.health -= weapon.attackValue;
     console.log( this.name + " attacked", enemy.name, "with the", weapon.name,
-   "and did", weapon.attackValue, "damage!");
-   console.log(enemy.name + "'s health is now", enemy.health );
-  } else {
+      "and did", weapon.attackValue, "damage!");
+    console.log(enemy.name + "'s health is now", enemy.health );
+  }
+  else {
     this.health -= enemy.attackValue;
     console.log(this.name, "attacked and missed!", enemy.name, "retaliated by dealing",
-    enemy.attackValue, "damage!" );
+      enemy.attackValue, "damage!" );
     console.log(this.name +"'s health is now", this.health);
   }
 };
